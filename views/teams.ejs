@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title></title>
-  </head>
+
   <body>
-    <h1></h1>
-    <%= teams[0]['name'] %>
-    <%= teams[0]['short_name'] %>
-    <%= teams[0]['fundation_date'] %>
-    <%= teams[0]['president'] %>
-    <%= teams[0]['adress'] %>
-    <%= teams[0]['website'] %>
-    <%= teams[0]['logo'] %>
-    <%= teams[0]['link'] %>
+    <h1>LES EQUIPES</h1>
+    <% teams.forEach(function(team) { %>
+      <div class="coll">
+        <div class="">
+          <h2><%= team.name %></h2>
+          <p><%= team.short_name %></p>
+          <img src="<%= team.logo %>" alt="logo equipe"></img>
+          <p><%= team.fundation_date %></p>
+          <p><%= team.president %></p>
+          <p><%= team.adress %></p>
+          <p><%= team.website %></p>
+
+          <p><%= team.pnk %></p>
+        </div>
+
+
+      </div>
+
+    <% }) %>
   </body>
 </html>

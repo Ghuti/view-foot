@@ -14,9 +14,15 @@ const kikou = mysql.createConnection({
 });
 
 app.get('/teams', function (req, res) {
+  res.write('<!DOCTYPE html>'+
+              '<html>'+
+              '    <head>'+
+              '        <meta charset="utf-8" />'+
+              '        <title>Ma page Node.js !</title>'+
+              '    </head>' )
   kikou.query('SELECT * FROM teams', function( err, data){
     res.render('teams', {
-      teams: data
+      teams: data, 
     });
   })
 });
