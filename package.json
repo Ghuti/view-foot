@@ -1,0 +1,26 @@
+{
+  "name": "view-foot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "nodemon -r @std/esm index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghuti/view-foot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ghuti/view-foot/issues"
+  },
+  "homepage": "https://github.com/Ghuti/view-foot#readme",
+  "dependencies": {
+    "@std/esm": "^0.26.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}
