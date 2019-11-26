@@ -1,0 +1,56 @@
+  <%- include('header') -%>
+    <div class="oscur container">
+      <h4><%= team.name %></h4>
+      <div class="jumbotron jumbotron-fluid my-bg">
+        <div class="container row">
+          <div class="col-3">
+            <img style="magin: 1rem" src="<%= team.logo %>" alt="logo <%= team.name %>">
+          </div>
+          <div class="col-9">
+            <table class="table table-striped table-dark">
+                <tr>
+                  <th>Nom</th>
+                  <td><%= team.name %></td>
+                </tr>
+                <tr>
+                  <th>nom abrégé</th>
+                  <td><%= team.short_name %></td>
+                </tr>
+                <tr>
+                  <th>Chaton mignon qui brule</th>
+                  <td><a href="https://media1.tenor.com/images/9887ce412ec27043669a2a1bd287450c/tenor.gif">CLICEUHHH</a></td>
+                </tr>
+                <tr>
+                  <th>date de fondation</th>
+                  <td><%= team.fundation_date %></td>
+                </tr>
+                <tr>
+                  <th>president</th>
+                  <td><%= team.president %></td>
+                </tr>
+                <tr>
+                  <th>adress</th>
+                  <td><%= team.adress %></td>
+                </tr>
+                <tr>
+                  <th>Stade</th>
+                  <td><%= team.stadium %></td>
+                </tr>
+                <tr>
+                  <th>site web</th>
+                  <td><%= team.website %></td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style media="screen">
+      .my-bg{
+        background: #666666;
+        color: #fff;
+      }
+    </style>
+
+  <%- include('footer') -%>

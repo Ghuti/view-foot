@@ -1,11 +1,93 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p><%= message %></p>
+<%- include('header') -%>
+  <div class="my-bg text-center oscur">
+    <h1 class="display-1"><%= title %></h1>
+    <p class="display-4"><%= message %></p>
     <a href="/teams">CLICK SALOPE</a>
-  </body>
-</html>
+    <div class="row">
+      <div class=" ml-auto blup row">
+        <div class="col">
+          <img src="https://media.giphy.com/media/4WGr6Jnd7TBte/giphy.gif" alt="pourquoi">
+        </div>
+        <div class="col">
+          <h4>Jim carrey rejoin l'equipe de commentateur!</h4>
+          <p>Préparer vous au meilleur du pire!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background: blue; color: yellow;" class="text-center">
+    <h4 style=" margin-bottom: 0;">SUIVEZ LES DERNIERS RESULTATS ICI</h4>
+  </div>
+  <div class="row nop text-center">
+    <div class="col-md-6 purple">
+      <h2>RESULTA DE L'OCTOGONNE</h2>
+      <h3 class="display-3">DYLAN 10 - 0 PICK-SOUS</h3>
+    </div>
+    <div class="col-md-6 green">
+      <h2>PROCHAIN FIGHT DE L'OCTOGONNE</h2>
+      <h3 class="display-3">LAURA - JULIEN</h3>
+      <div class="counter display-4">
+					<span class="d"></span>
+					<span class="h"></span>
+					<span class="m"></span>
+					<span class="s"></span>
+				</div>
+    </div>
+  </div>
+
+  <style media="screen">
+    .my-bg {
+      background: url('https://i.pinimg.com/originals/e2/8f/95/e28f955d92b73e3cf6dd805d0510dc6d.jpg') no-repeat center;
+      width: 100%;
+      height: 600px;
+      color: #fff;
+    }
+
+    .purple {
+      background: purple;
+      height: 300px;
+      color: #fff;
+    }
+
+    .green {
+      background: green;
+      height: 300px;
+      color: #fff;
+    }
+
+    .nop {
+      margin-right: 0;
+    }
+
+    .blup {
+      background: rgba(0, 0, 0, 0.5);
+      margin-right: 5rem;
+    }
+    .counter > span:not(:last-of-type):after {
+      content: " : ";
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script>
+			var target = new Date(2020, 0, 1, 0, 0, 0, 0);
+			function tick() {
+				var now = new Date();
+				var diff = Math.floor((target.getTime() - now.getTime())/1000);
+
+				var seconds = diff % 60;
+				var minutes = Math.floor(diff%3600 / 60);
+				var hours = Math.floor(diff%86400 / 3600);
+				var days = Math.floor(diff / (60 * 60 * 24));
+
+				$('.counter .d').html(days);
+				$('.counter .h').html(hours<10?"0"+hours:hours);
+				$('.counter .m').html(minutes<10?"0"+minutes:minutes);
+				$('.counter .s').html(seconds<10?"0"+seconds:seconds);
+			}
+
+			$(document).ready(function() {
+				window.setInterval(tick, 1000);
+				tick();
+			});
+		</script>
+<%- include('footer') -%>

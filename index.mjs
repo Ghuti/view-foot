@@ -6,6 +6,11 @@ const app = express();
 
 app.set('view engine','ejs');
 
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Ligue 1', message: 'retrouver toute vos équipes'});
+})
+
+// connection bdd
 const kikou = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -13,23 +18,51 @@ const kikou = mysql.createConnection({
   database : 'football_french_chiampionship'
 });
 
+//page list of teams
 app.get('/teams', function (req, res) {
-  res.write('<!DOCTYPE html>'+
-              '<html>'+
-              '    <head>'+
-              '        <meta charset="utf-8" />'+
-              '        <title>Ma page Node.js !</title>'+
-              '    </head>' )
   kikou.query('SELECT * FROM teams', function( err, data){
     res.render('teams', {
-      teams: data, 
+      teams: data
     });
   })
 });
 
+//page of team
+app.get('/teams/:id', function (req, res) {
+  const teamId = req.params.id;
+  kikou.query(`
+    SELECT teams.*, stadiums.name AS stadium
+    FROM teams
+    INNER JOIN stadiums ON stadiums.id = teams.id_stadium
+    WHERE teams.id = ?`, [teamId], function( err, data){
+    res.render('team', {
+      team: data[0]
+    });
+    //res.send(data)
+  })
+})
 
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Ligue 1 ENCULER', message: 'TARTE A GUEULLE A LA RECREE'});
+// list of coach
+app.get('/coachs', function (req, res) {
+  kikou.query('SELECT * FROM coachs', function( err, data){
+    res.render('coachs', {
+      coachs: data
+    });
+  })
+});
+
+//page of coach
+app.get('/coach/:id', function (req, res) {
+  const coachId = req.params.id;
+  kikou.query(`
+    SELECT *
+    FROM coachs
+    WHERE coachs.id = ?`, [coachId], function( err, data){
+    res.render('team', {
+      team: data[0]
+    });
+    //res.send(data)
+  })
 })
 
 

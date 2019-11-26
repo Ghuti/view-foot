@@ -1,23 +1,26 @@
-
-  <body>
-    <h1>LES EQUIPES</h1>
-    <% teams.forEach(function(team) { %>
-      <div class="coll">
-        <div class="">
-          <h2><%= team.name %></h2>
-          <p><%= team.short_name %></p>
-          <img src="<%= team.logo %>" alt="logo equipe"></img>
-          <p><%= team.fundation_date %></p>
-          <p><%= team.president %></p>
-          <p><%= team.adress %></p>
-          <p><%= team.website %></p>
-
-          <p><%= team.pnk %></p>
+  <%- include('header') -%>
+    <div class="container oscur">
+      <h1>LES EQUIPES</h1>
+      <% teams.forEach(function(team) { %>
+        <div class="row">
+          <div class="col-md-2">
+            <img style="width: 100px;" src="<%= team.logo %>" alt="logo equipe"></img>
+          </div>
+          <div class="col-md-4">
+            <h4><%= team.name %></h4>
+            <p><%= team.short_name %></p>
+          </div>
+          <div class="col-md-4">
+            <p><%= team.president %></p>
+          </div>
+          <div class="col-md-2">
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="https://<%= team.website %>">web site</a>
+            <a class="btn btn-secondary btn-lg btn-block" href="/teams/<%= team.id %>">Info</a>
+          </div>
         </div>
+        <hr>
+      <% }) %>
+    </div>
 
 
-      </div>
-
-    <% }) %>
-  </body>
-</html>
+  <%- include('footer') -%>

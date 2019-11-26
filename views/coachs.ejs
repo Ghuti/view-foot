@@ -1,0 +1,26 @@
+<%- include('header') -%>
+  <div class="container oscur">
+    <h1>LES (faux) COACHS</h1>
+    <% coachs.forEach(function(coach) { %>
+      <div class="row">
+        <div class="col-md-2">
+          <img style="width: 100px;" src="<%= coach.photo %>" alt="logo equipe"></img>
+        </div>
+        <div class="col-md-4">
+          <h4><%= coach.name %></h4>
+        </div>
+        <div class="col-md-4">
+          <p><%= coach.birthday_date %></p>
+          <p><%= coach.birthday_place %></p>
+        </div>
+        <div class="col-md-2">
+          <a class="btn btn-secondary btn-lg btn-block" href="/coach/<%= coach.id %>">Info</a>
+        </div>
+      </div>
+      <hr>
+
+    <% }) %>
+  </div>
+
+
+<%- include('footer') -%>
