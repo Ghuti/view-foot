@@ -20,7 +20,7 @@
   "dependencies": {
     "@std/esm": "^0.26.0",
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mysql": "^2.17.1"
   }
 }
